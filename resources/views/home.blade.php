@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Txt pestaña</title>
+        <title>Magamat Alía</title>
         <link rel="stylesheet" href="{{ mix('css/app.css')}}">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Monserrat:200,600" rel="stylesheet">
