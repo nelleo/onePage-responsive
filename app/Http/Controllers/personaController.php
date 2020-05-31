@@ -36,7 +36,8 @@ class personaController extends Controller
             'telefono.min'=>'El telefono debe ser mayor a 7 digitos',
             'dni.required'=>'El dni es obligatorio',
             'dni.min'=>'El dni debe ser mayor a 7 digitos',
-            'dni.max'=>'El dni debe ser menor a 15 digitos'
+            'dni.max'=>'El dni debe ser menor a 15 digitos',
+            'dni.unique'=>'Este dni ya se encuentra en uso',
         ];
      $this->validate($request,$rules,$msg);
 
