@@ -13,7 +13,7 @@
     <body>
        <div class="container-fluid">
             <div class="row" style="background-color: #1c4c84"> 
-                <div class="col-12 col-md-6">
+                <div class=" col-md-6 col-12">
                     <img class="mt-5 ml-5" src="img/Logo-principal.jpg" alt="logo">
                     <h1 class="mt-4 ml-5" style="font-size:4em;color:white;">TU CARRERA <br> UNIVERSITARIA <br></h1>
                     <h1 class="ml-5" style="font-size:4em;color:#f7ca48;">EN ISRAEL</h1>
@@ -33,32 +33,32 @@
                         <input type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{ old('nombre') }}" required autocomplete="nombre" autofocus  placeholder="Nombre" >
                       </div>
                       <div class="form-group col-md-4 mt-2 ">
-                        <input type="text" class="form-control  placeholder="Apellidos">
+                        <input type="text" class="form-control @error('apellido') is-invalid @enderror" name="apellido" value="{{ old('apellido') }}" required autocomplete="apellido" autofocus placeholder="Apellidos">
                       </div>
                       <div class="form-group col-md-4 mt-2  ">
-                        <input type="date" class="form-control" id="inputPassword4" placeholder="Fecha de nacimiento">
+                        <input type="date" class="form-control @error('fechanac') is-invalid @enderror" name="fechanac" value="{{ old('fechanac') }}" required autocomplete="fechanac" autofocus placeholder="Fecha de nacimiento">
                       </div>
                     </div>
                     <div class="form-row mb-3 ">
                         <div class="form-group col-md-4 mt-2">
-                          <input type="number" class="form-control" id="inputEmail4" placeholder="DNI">
+                          <input type="number" class="form-control @error('dni') is-invalid @enderror" name="dni" value="{{ old('dni') }}" required autocomplete="dni" autofocus placeholder="DNI">
                         </div>
                         <div class="form-group col-md-4 mt-2">
-                          <input type="email" class="form-control" id="inputPassword4" placeholder="E-mail">
+                          <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="E-mail">
                         </div>
                         <div class="form-group col-md-4 mt-2">
-                          <input type="number" class="form-control" id="inputPassword4" placeholder="Teléfono">
+                          <input type="number" class="form-control @error('telefono') is-invalid @enderror" name="telefono" value="{{ old('telefono') }}" required autocomplete="telefono" autofocus placeholder="Teléfono">
                         </div>
                       </div>
                       <div class="form-row mb-3 ">
                         <div class="form-group col-md-4 mt-2">
-                          <input type="text" class="form-control" id="inputEmail4" placeholder="Dirección">
+                          <input type="text" class="form-control @error('direccion') is-invalid @enderror" name="direccion" value="{{ old('direccion') }}" required autocomplete="direccion" autofocus placeholder="Dirección">
                         </div>
                         <div class="form-group col-md-4 mt-2">
-                          <input type="text" class="form-control" id="inputPassword4" placeholder="Ciudad">
+                          <input type="text" class="form-control @error('ciudad') is-invalid @enderror" name="ciudad" value="{{ old('ciudad') }}" required autocomplete="ciudad" autofocus placeholder="Ciudad">
                         </div>
                         <div class="form-group col-md-4 mt-2">
-                          <input type="text" class="form-control" id="inputPassword4" placeholder="Provincia">
+                          <input type="text" class="form-control @error('provincia') is-invalid @enderror" name="provincia" value="{{ old('provincia') }}" required autocomplete="provincia" autofocus placeholder="Provincia">
                         </div>
                       </div>
                       <button type="submit" class="btn" style="background-color:#1c4c84;color:#f7ca48;border:none">ENVIAR</button>
