@@ -13,7 +13,7 @@
     <body>
        <div class="container-fluid">
             <div class="row" style="background-color: #1c4c84"> 
-                <div class="col-sm-12 col-md-6">
+                <div class="col-12 col-md-6">
                     <img class="mt-5 ml-5" src="img/Logo-principal.jpg" alt="logo">
                     <h1 class="mt-4 ml-5" style="font-size:4em;color:white;">TU CARRERA <br> UNIVERSITARIA <br></h1>
                     <h1 class="ml-5" style="font-size:4em;color:#f7ca48;">EN ISRAEL</h1>
@@ -26,38 +26,39 @@
             </div>
             <div class="row mt-3 mb-4">
                 <h4 class="mt-3 offset-md-3 col-md-8" style="color: #1c4c84">ENVIANOS TUS DATOS PARA INSCRIBIRTE AL PROGRAMA</h4>
-                <form class="mx-auto mt-4 mb-5 text-center">
+                <form class="mx-auto mt-4 mb-5 text-center" method="POST" action="/envioDatos">
+                    @csrf
                     <div class="form-row mb-3 ">
                       <div class="form-group col-md-4 mt-2" >
-                        <input type="email" class="form-control" id="inputEmail4" placeholder="Nombre" >
+                        <input type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{ old('nombre') }}" required autocomplete="nombre" autofocus  placeholder="Nombre" >
                       </div>
                       <div class="form-group col-md-4 mt-2 ">
-                        <input type="password" class="form-control" id="inputPassword4" placeholder="Apellidos">
+                        <input type="text" class="form-control  placeholder="Apellidos">
                       </div>
                       <div class="form-group col-md-4 mt-2  ">
-                        <input type="password" class="form-control" id="inputPassword4" placeholder="Fecha de nacimiento">
+                        <input type="date" class="form-control" id="inputPassword4" placeholder="Fecha de nacimiento">
                       </div>
                     </div>
                     <div class="form-row mb-3 ">
                         <div class="form-group col-md-4 mt-2">
-                          <input type="email" class="form-control" id="inputEmail4" placeholder="DNI">
+                          <input type="number" class="form-control" id="inputEmail4" placeholder="DNI">
                         </div>
                         <div class="form-group col-md-4 mt-2">
-                          <input type="password" class="form-control" id="inputPassword4" placeholder="E-mail">
+                          <input type="email" class="form-control" id="inputPassword4" placeholder="E-mail">
                         </div>
                         <div class="form-group col-md-4 mt-2">
-                          <input type="password" class="form-control" id="inputPassword4" placeholder="Teléfono">
+                          <input type="number" class="form-control" id="inputPassword4" placeholder="Teléfono">
                         </div>
                       </div>
                       <div class="form-row mb-3 ">
                         <div class="form-group col-md-4 mt-2">
-                          <input type="email" class="form-control" id="inputEmail4" placeholder="Dirección">
+                          <input type="text" class="form-control" id="inputEmail4" placeholder="Dirección">
                         </div>
                         <div class="form-group col-md-4 mt-2">
-                          <input type="password" class="form-control" id="inputPassword4" placeholder="Ciudad">
+                          <input type="text" class="form-control" id="inputPassword4" placeholder="Ciudad">
                         </div>
                         <div class="form-group col-md-4 mt-2">
-                          <input type="password" class="form-control" id="inputPassword4" placeholder="Provincia">
+                          <input type="text" class="form-control" id="inputPassword4" placeholder="Provincia">
                         </div>
                       </div>
                       <button type="submit" class="btn" style="background-color:#1c4c84;color:#f7ca48;border:none">ENVIAR</button>
