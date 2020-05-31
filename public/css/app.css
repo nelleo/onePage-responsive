@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "hey_augustregular";
+  src: url(/fonts/heyaugust-webfont.woff2?3895849c36814c8ab3301d9f9f231660) format("woff2"), url(/fonts/heyaugust-webfont.woff?8cb856ede8a58a6200ba5413e55a56b0) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.ti1 {
+  font-family: "hey_augustregular";
+  letter-spacing: 1pt;
+  color: white;
+  font-size: 4em;
+}
+
+.ba {
+  font-family: "Montserrat", sans-serif;
+}
+
+@media (max-width: 424px) {
+  .ti1 {
+    font-size: 3em;
+  }
+}
+
