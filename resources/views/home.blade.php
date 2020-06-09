@@ -14,21 +14,23 @@
     </head>
     <body>
        <div class="container-fluid">
-        <div class="row" style="background-color: #1c4c84"> 
+        <div class="row row1" style="background-color: #1c4c84"> 
           <div class="col-12 col-md-6">
-          <img class="ml-lg-5 mt-5" src="img/Logo-principal.jpg" alt="logo">
-              <h1 class="mt-4 ml-lg-5 ti1">TU CARRERA </h1>
-              <h1 class="ml-lg-5 ti1">UNIVERSITARIA</h1>
+          <img class="ml-lg-4 mt-5 ml-4 ml-sm-0 col-9 col-sm-5 col-md-7 col-lg-6" src="img/Logo-principal.jpg" alt="logo">
+              <h1 class="mt-4 ml-lg-5 ti1" >TU CARRERA </h1>
+              <h1 class="ml-lg-5 ti1" style="line-height:60%">UNIVERSITARIA</h1>
               <h1 class="ml-lg-5 ti1" style="color:#f7ca48;">EN ISRAEL</h1>
-              <p class="mt-3 ml-lg-5 ba" style="font-size:1.5em;color:white;">Megamat Aliá es la oortunidad de acceder <br> a <strong>las mejores unirvesidades</strong> del Estado de Israel </p>
+              <p class="mt-3 ml-lg-5 ba" style="font-size:1.3em;color:white;">Megamat Aliá es la oortunidad de acceder <br> a <strong>las mejores unirvesidades</strong> del Estado de Israel </p>
+              <a href="#register">
               <button class="mt-3 mb-4 ml-lg-5 btn ba" style="color:#1c4c84;background-color:#f7ca48;border:none;font-weight: 900;">CONOCÉ MÁS <i class="fa fa-chevron-down"></i> </button>
+              </a>
           </div>
           <div class="col-md-6" style="overflow: hidden;">
-              <img style="min-height: 100%;min-width: 100%;" src="img/imagen-principal.jpg" alt="img principal">
+              <img class="im" src="img/imagen-principal.jpg" alt="img principal">
           </div>
       </div>
-      <div class="row mt-3 mb-4">
-          <h4 class="mt-3 offset-md-2 offset-xl-3 col-md-8 ba" style="color: #1c4c84">ENVIANOS TUS DATOS PARA INSCRIBIRTE AL PROGRAMA</h4>
+      <div class="row mt-3 mb-4 text-center">
+          <h4 id="register" class="mt-3 mx-auto offset-xl-3 col-md-8 ba " style="color: #1c4c84;font-weight:900">ENVIANOS TUS DATOS PARA INSCRIBIRTE AL PROGRAMA</h4>
                 <form class="mx-auto mt-4 mb-5 text-center" method="POST" action="/envioDatos">
                     @csrf
                     <div class="form-row mb-3 mw-100">
@@ -48,8 +50,9 @@
                         </span>
                         @enderror
                       </div>
-                      <div class="form-group col-md-4 mt-2  ">
-                        <input type="date" class="form-control @error('fechanac') is-invalid @enderror" name="fechanac" value="{{ old('fechanac') }}" required autocomplete="fechanac" autofocus placeholder="Fecha de nacimiento">
+                      <div class="form-group col-md-4 mt-2 fechanac">
+                        <input type="date" class="form-control @error('fechanac') is-invalid @enderror" name="fechanac"  required autocomplete="fechanac" autofocus value="00/00/0000">
+                        <label for="fechanac" style="font-size:0.9em;">Fecha de nacimiento</label>
                         @error('fechanac')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -109,14 +112,19 @@
                         @enderror
                         </div>
                       </div>
+                      @if(Session::has('mensaje'))
+                        <div class="alert alert-success mt-1 mb-1" role="alert">
+                          {{ Session::get('mensaje')}} 
+                        </div>
+                      @endif
                       <button type="submit" class="btn ba" style="background-color:#1c4c84;color:#f7ca48;border:none;font-weight: 800;">ENVIAR</button>
                   </form>
             </div>
-            <div class="row mt-3 py-3" style="background-color: #1c4c84">
-                    <img class="mw-100 mx-auto" src="img/logo-pie1.jpg" alt="cargando img" style="height:0.5%">
-                    <img class="mx-auto" src="img/logo-pie2.jpg" alt="cargando img" style="height:0.5%">
-                    <img class="mx-auto" src="img/logo-pie3.jpg" alt="cargando img" style="height:0.5%">
-                    <img class="mx-auto" src="img/logo-pie4.jpg" alt="cargando img" style="height:0.5%">
+            <div class="row mt-3 py-3 text-center colum flex-wrap" style="background-color: #1c4c84;">
+                    <img id="logopie" class="mx-auto " src="img/logo-pie1.jpg" alt="cargando img" style="height:0.5%">
+                    <img id="logopie" class="mx-auto" src="img/logo-pie2.jpg" alt="cargando img" style="height:0.5%">
+                    <img id="logopie" class="mx-auto" src="img/logo-pie3.jpg" alt="cargando img" style="height:0.5%">
+                    <img id="logopie" class="mx-auto" src="img/logo-pie4.jpg" alt="cargando img" style="height:0.5%">
             </div>
        </div>
     </body>
