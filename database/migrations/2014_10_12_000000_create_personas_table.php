@@ -23,7 +23,7 @@ class CreatePersonasTable extends Migration
             $table->string('direccion',100);
             $table->string('ciudad',100);
             $table->string('provincia',100);
-            $table->dateTime('fechanac');
+            $table->date('fechanac');
             $table->timestamps();
         });
     }
