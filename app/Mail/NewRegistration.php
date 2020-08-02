@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use App\Persona;
-
+    
 class NewRegistration extends Mailable
 {
     use Queueable, SerializesModels;
