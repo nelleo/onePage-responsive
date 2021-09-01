@@ -1,11 +1,11 @@
-<?php
+    <?php
 
-namespace App;
+    namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Database\Eloquent\Model;
 
-class Persona extends Model
-{
-    protected $fillable = ['nombre','apellido','email','fechanac', 'telefono','provincia','ciudad','dni',
-                            'direccion'];
-}
+    class Persona extends Model
+    {
+        protected $fillable = ['nombre','apellido','email','fechanac', 'telefono','provincia','ciudad','dni',
+                                'direccion','pais','terminos_condiciones'];
+    }

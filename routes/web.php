@@ -16,5 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/terminosycondiciones', function () {
+    return view('tyc');
+});
 
 Route::post('/envioDatos', "personaController@register");
+
+Route::get('/foo', function () {
+    $exitCode = Artisan::call('cache:clear');
+});
+Route::get('/config-cache', function() {
+    $exitCode = Artisan::call('config:cache');
+    return '<h1>Clear Config cleared</h1>';
+});

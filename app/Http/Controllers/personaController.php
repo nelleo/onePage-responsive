@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Persona;
 use App\Mail\NewRegistration;
+use Validator;
 use Mail;
 class personaController extends Controller
 {
@@ -20,6 +21,8 @@ class personaController extends Controller
             'fechanac'=>'required|date',
             'ciudad'=>'required|string|min:4',
             'provincia'=>'required|min:4|string',
+            'pais'=>'required|string|min:4',
+            'tyc'=>'required|in:on',
         ];
         $msg=[
             'nombre.required'=>'El nombre es obligatorio',
@@ -28,9 +31,11 @@ class personaController extends Controller
             'direccion.required'=>'La direccion es obligatoria',
             'ciudad.required'=>'La ciudad es obligatoria',
             'provincia.required'=>'La provincia es obligatoria',
-            'telefono.required'=>'La telefono es obligatoria',
+            'pais.required'=>'El país es obligatorio',
+            'telefono.required'=>'La telefono es obligatorio',
             'email.required'=>'El email es obligatorio',
             'dni.required'=>'El dni es obligatorio',
+            'tyc.required'=>'Debe aceptar los terminos y condiciones',
             'nombre.min'=>'El nombre debe tener al menos 4 caracteres',
             'apellido.min'=>'El apellido debe tener al menos 4 caracteres',
             'telefono.min'=>'El telefono debe ser mayor a 7 digitos',
@@ -38,12 +43,21 @@ class personaController extends Controller
             'direccion.min'=>'La direccion debe ser mayor a 6 digitos',
             'ciudad.min'=>'La ciudad debe ser mayor a 4 digitos',
             'provincia.min'=>'La provincia debe ser mayor a 4 digitos',
+            'pais.min'=>'EL paÍs debe ser mayor a 4 digitos',
             'dni.max'=>'El dni debe ser menor a 15 digitos',            
             'email.unique'=>'El email ya se encuentra en uso',    
             'dni.unique'=>'Este dni ya se encuentra en uso',
             'email.email'=>'El email no es un email valido',
         ];
-     $this->validate($request,$rules,$msg);
+    //  $this->validate($request,$rules,$msg);
+
+     $validator = Validator::make($request->all(),$rules,$msg);
+
+    if ($validator->fails()) {
+        return redirect('/#register')
+                    ->withErrors($validator)
+                    ->withInput();
+    }
 
         
         //creamos una persona con los datos enviados
@@ -57,6 +71,8 @@ class personaController extends Controller
             'direccion'=>$request->direccion,
             'ciudad'=>$request->ciudad,
             'provincia'=>$request->provincia,
+            'pais'=>$request->pais,
+            'terminos_condiciones'=>$request->tyc=="on"?1:0,
         ]);
         
     $correo=["gustavolcs.271@gmail.com"];
@@ -67,6 +83,6 @@ class personaController extends Controller
     
     $mensaje="Te has registrado con exito, nos comunicaremos contigo en breve";
     \Session::flash('mensaje', $mensaje);
-    return redirect('/')->with(["mensaje",$mensaje]);
+    return redirect('/#register')->with(["mensaje",$mensaje]);
     }
 }

@@ -18,6 +18,8 @@
         <li>Dirección: {{ $persona->nombre }}</li>
         <li>Ciudad: {{ $persona->nombre }}</li>
         <li>Provincia: {{ $persona->nombre }}</li>
+        <li>País: {{ $persona->pais }}</li>
+        <li>Terminos y condiciones: {{ $persona->terminos_condiciones?"acepto":"no acepto"}}</li>
     </ul>
 </body>
 </html>

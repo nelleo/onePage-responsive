@@ -13,7 +13,7 @@
         <link rel="icon" type="image/ico" href="img/favicon.ico">   
     </head>
     <body>
-       <div class="container-fluid">  
+      <div class="container-fluid">  
         <div class="row row1" style="background-color: #1c4c84"> 
           <div class="col-12 col-md-6">
           <img class="ml-lg-4 mt-5 ml-4 ml-sm-0 col-9 col-sm-5 col-md-7 col-lg-6" src="img/Logo-principal.jpg" alt="logo">
@@ -28,10 +28,10 @@
           <div class="col-md-6" style="overflow: hidden;">
               <img class="im" src="img/imagen-principal.jpg" alt="img principal">
           </div>
-      </div>
-      <div class="row mt-3 mb-4 text-center">
+        </div>
+        <div class="row mt-3 mb-4 text-center">
           <h4 id="register" class="mt-3 mx-auto offset-xl-3 col-md-8 ba " style="color: #1c4c84;font-weight:900">ENVIANOS TUS DATOS PARA INSCRIBIRTE AL PROGRAMA</h4>
-                <form class="mx-auto mt-4 mb-5 text-center" method="POST" action="/#">
+                <form class="mx-auto mt-4 mb-5 text-center" method="POST" action="/envioDatos">
                     @csrf
                     <div class="form-row mb-3 mw-100">
                       <div class="form-group col-md-4 mt-2" >
@@ -51,7 +51,7 @@
                         @enderror
                       </div>
                       <div class="form-group col-md-4 mt-2 fechanac">
-                        <input type="date" class="form-control @error('fechanac') is-invalid @enderror" name="fechanac"  required autocomplete="fechanac"  value="00/00/0000">
+                        <input type="date" class="form-control @error('fechanac') is-invalid @enderror" name="fechanac"  required autocomplete="fechanac"  value="{{ old('fechanac') }}">
                         <label for="fechanac" style="font-size:0.9em;">Fecha de nacimiento</label>
                         @error('fechanac')
                         <span class="invalid-feedback" role="alert">
@@ -78,8 +78,8 @@
                         @enderror
                         </div>
                         <div class="form-group col-md-4 mt-2">
-                          <input type="number" class="form-control @error('telefono') is-invalid @enderror" name="telefono" value="{{ old('telefono') }}" required autocomplete="telefono"  placeholder="Teléfono">
-                          @error('telefono')
+                          <input type="text" class="form-control @error('pais') is-invalid @enderror" name="pais" value="{{ old('pais') }}" required autocomplete="pais"  placeholder="País">
+                          @error('pais')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -110,6 +110,29 @@
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
+                        </div>
+                      </div>
+                      <div class="form-row mb-3 mw-100">
+                        <div class="form-group col-md-4 mt-2">
+                          <input type="number" class="form-control @error('telefono') is-invalid @enderror" name="telefono" value="{{ old('telefono') }}" required autocomplete="telefono"  placeholder="Teléfono">
+                          @error('telefono')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                        </div>
+                        <div class="form-group col-md-8 mt-2 tyc">
+                          <label for="tyc">
+                          <input type="checkbox" class="form-check-input  @error('tyc') is-invalid @enderror" name="tyc"  id="tyc" required autocomplete="tyc"  placeholder="tyc">Acepto los 
+                              <a href="/terminosycondiciones" target="_blank">terminos y condiciones
+                              </a>
+                              @error('tyc')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                              @enderror
+                          </label>
+                          
                         </div>
                       </div>
                       @if(Session::has('mensaje'))
